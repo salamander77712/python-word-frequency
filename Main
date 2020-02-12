@@ -1,0 +1,25 @@
+def wordFreq(text):
+    txt = text.strip()
+    txt = txt.lower()
+    txtSplit = txt.split(" ")
+    counter1 = 0
+    counter2 = 0
+    counter3 = 0
+    check = False
+    unique = []
+    amount = []
+    while counter1 < len(txtSplit):
+        while counter2 < len(unique):
+            if txtSplit[counter1] == unique[counter2]:
+                check = True
+                amount[counter2] += 1
+            counter2 += 1
+        if check == False:
+            unique.append(txtSplit[counter1])
+            amount.append(1)
+        counter1 += 1
+        counter2 = 0
+        check = False
+    while counter3 < len(unique):
+        print(str(amount[counter3]) + " instances of " + unique[counter3])
+        counter3 += 1
