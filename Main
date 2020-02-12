@@ -1,6 +1,37 @@
 def wordFreq(text):
     txt = text.strip()
     txt = txt.lower()
+    txt = txt.replace("?",'')
+    txt = txt.replace(".",'')
+    txt = txt.replace(",",'')
+    txt = txt.replace("\'",'')
+    txt = txt.replace("/",'')
+    txt = txt.replace("!",'')
+    txt = txt.replace("@",'')
+    txt = txt.replace("#",'')
+    txt = txt.replace("$",'')
+    txt = txt.replace("%",'')
+    txt = txt.replace("^",'')
+    txt = txt.replace("&",'')
+    txt = txt.replace("*",'')
+    txt = txt.replace("(",'')
+    txt = txt.replace(")",'')
+    txt = txt.replace("+",'')
+    txt = txt.replace("=",'')
+    txt = txt.replace("-",'')
+    txt = txt.replace("_",'')
+    txt = txt.replace('"','')
+    txt = txt.replace(";",'')
+    txt = txt.replace(":",'')
+    txt = txt.replace("[",'')
+    txt = txt.replace("]",'')
+    txt = txt.replace("{",'')
+    txt = txt.replace("}",'')
+    txt = txt.replace("\\",'')
+    txt = txt.replace("`",'')
+    txt = txt.replace("~",'')
+    txt = txt.replace("<",'')
+    txt = txt.replace(">",'')
     txtSplit = txt.split(" ")
     counter1 = 0
     counter2 = 0
@@ -14,7 +45,7 @@ def wordFreq(text):
                 check = True
                 amount[counter2] += 1
             counter2 += 1
-        if check == False:
+        if check == False and txtSplit[counter1] != "":
             unique.append(txtSplit[counter1])
             amount.append(1)
         counter1 += 1
