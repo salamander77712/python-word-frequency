@@ -1,56 +1,34 @@
-def wordFreq(text):
+def count_words(text):
     txt = text.strip()
     txt = txt.lower()
-    txt = txt.replace("?",'')
-    txt = txt.replace(".",'')
-    txt = txt.replace(",",'')
-    txt = txt.replace("\'",'')
-    txt = txt.replace("/",'')
-    txt = txt.replace("!",'')
-    txt = txt.replace("@",'')
-    txt = txt.replace("#",'')
-    txt = txt.replace("$",'')
-    txt = txt.replace("%",'')
-    txt = txt.replace("^",'')
-    txt = txt.replace("&",'')
-    txt = txt.replace("*",'')
-    txt = txt.replace("(",'')
-    txt = txt.replace(")",'')
-    txt = txt.replace("+",'')
-    txt = txt.replace("=",'')
-    txt = txt.replace("-",'')
-    txt = txt.replace("_",'')
-    txt = txt.replace('"','')
-    txt = txt.replace(";",'')
-    txt = txt.replace(":",'')
-    txt = txt.replace("[",'')
-    txt = txt.replace("]",'')
-    txt = txt.replace("{",'')
-    txt = txt.replace("}",'')
-    txt = txt.replace("\\",'')
-    txt = txt.replace("`",'')
-    txt = txt.replace("~",'')
-    txt = txt.replace("<",'')
-    txt = txt.replace(">",'')
-    txtSplit = txt.split(" ")
-    counter1 = 0
-    counter2 = 0
-    counter3 = 0
-    check = False
-    unique = []
-    amount = []
-    while counter1 < len(txtSplit):
-        while counter2 < len(unique):
-            if txtSplit[counter1] == unique[counter2]:
-                check = True
-                amount[counter2] += 1
-            counter2 += 1
-        if check == False and txtSplit[counter1] != "":
-            unique.append(txtSplit[counter1])
-            amount.append(1)
-        counter1 += 1
-        counter2 = 0
-        check = False
-    while counter3 < len(unique):
-        print(str(amount[counter3]) + " instances of " + unique[counter3])
-        counter3 += 1
+    txt = txt.replace(".","")
+    txt = txt.replace(",","")
+    txt = txt.replace("!","")
+    txt = txt.replace("?","")
+    txt = txt.replace(";","")
+    txt = txt.replace("¿","")
+    word_list = txt.split(" ")
+    found_words = []
+    word_freq = []
+    i = 0
+    j = 0
+    found = False
+    while i < len(word_list):
+        while j < len(found_words):
+            if word_list[i] == found_words[j]:
+                word_freq[j] += 1
+                found = True
+            j += 1
+        if found == False:
+            found_words.append(word_list[i])
+            word_freq.append(1)
+        i += 1
+        found = False
+        j = 0
+    output = {}
+    i = 0
+    print(found_words)
+    while i < len(found_words):
+        output[found_words[i]] = word_freq[i]
+        i += 1
+    return output
